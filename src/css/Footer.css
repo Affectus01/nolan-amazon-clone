@@ -1,0 +1,29 @@
+.footer {
+  background-color: #131921;
+}
+
+.footer__quickLinks ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer__quickLinks ul li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.footer__statement > img {
+  width: 150px;
+}
+
+.footer__statement > ul {
+  list-style: none;
+}
+
+.footer__statement ul li:nth-child(2):before,
+.footer__statement ul li:nth-child(3):before {
+  content: "\2022";
+  padding-left: 7px;
+  padding-right: 7px;
+  color: #5c5c5c;
+}

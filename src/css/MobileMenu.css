@@ -1,0 +1,27 @@
+.mobileMenu {
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+}
+
+.mobileMenu__closeIcon {
+  top: 0;
+  right: 18px;
+  width: auto !important;
+  height: 80px !important;
+}
+
+.mobileMenu__menuWrapper {
+  width: 70%;
+  height: 100vh;
+}
+
+.mobileMenu__headerIcon {
+  font-size: 37px !important;
+  vertical-align: top !important;
+}
+
+.mobileMenu__menu > li {
+  font-size: 16px;
+  padding: 10px;
+  list-style: none;
+}

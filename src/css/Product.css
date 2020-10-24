@@ -1,0 +1,30 @@
+.product {
+  z-index: 1;
+}
+
+.product__price {
+  font-size: 18px;
+}
+
+.product__rating {
+  color: #fcbb00;
+}
+
+.product > img {
+  max-height: 200px;
+  object-fit: contain;
+}
+
+.product__info {
+  height: 100px;
+}
+
+.product > button {
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b) !important;
+  color: #111;
+  border-color: #a88734 #9c7e31 #846a29 !important;
+}
+
+.product > button:hover {
+  background: #f0c14b !important;
+}

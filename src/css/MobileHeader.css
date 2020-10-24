@@ -1,0 +1,39 @@
+.mobileHeader__line1 {
+  height: 65px;
+  background-color: #131921;
+  top: 0;
+  z-index: 100;
+}
+
+.mobileHeader__menuIcon {
+  font-size: 45px !important;
+}
+
+.mobileHeader__logo {
+  width: 120px;
+  object-fit: contain;
+}
+
+.mobileHeader__line1Right {
+  font-size: 16px;
+}
+
+.mobileHeader__cartLink {
+  font-size: 45px !important;
+}
+
+.mobileHeader__line2 {
+  background-color: #131921;
+  z-index: 100;
+}
+
+.mobileHeader__search {
+  flex: 1;
+  border-radius: 24px;
+}
+
+.mobileHeader__searchIcon {
+  height: 50px !important;
+  width: 55px !important;
+  background-color: #febd69;
+}

@@ -1,0 +1,83 @@
+.header {
+  height: 60px;
+  background-color: #131921;
+  top: 0;
+  z-index: 100;
+}
+
+.header__logo {
+  width: 168px;
+  object-fit: contain;
+}
+
+.header__search {
+  flex: 1;
+  border-radius: 24px;
+}
+.header__searchButton {
+  background-color: #febd69;
+}
+
+.header__searchButton:hover {
+  background-color: #f3a847;
+}
+
+.header__searchIcon {
+  font-size: 21px !important;
+}
+
+.header__nav {
+  justify-content: space-evenly;
+}
+
+.header__optionLineOne {
+  font-size: 12px;
+}
+
+.header__optionLineTwo {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.header__cartLink {
+  color: #fff;
+}
+
+.header__cartLink:hover {
+  color: #fff;
+}
+
+.header__option,
+.header__optionCart {
+  border: 1px solid #131921;
+  border-radius: 5px;
+}
+
+.header__option:hover,
+.header__optionCart:hover {
+  border-color: #fff;
+  cursor: pointer;
+}
+
+.dropdown > button {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.dropdown-menu {
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+.dropdown-item:hover {
+  background-color: rgb(121, 121, 121);
+  color: #fff;
+}
+
+.btn-light:not(:disabled):not(.disabled).active:focus,
+.btn-light:not(:disabled):not(.disabled):active:focus,
+.show > .btn-light.dropdown-toggle:focus,
+.dropdown > button:active,
+.dropdown > button:focus {
+  box-shadow: 0 0 0 2px #f90, 0 0 0 3px rgba(255, 153, 0, 0.5);
+}

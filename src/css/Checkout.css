@@ -1,0 +1,17 @@
+.checkout__container > h1 {
+  background: rgb(210, 210, 210);
+}
+
+.checkout__title {
+  flex: 0.2;
+}
+
+.checkout__address,
+.checkout__items,
+.checkout__details {
+  flex: 0.8;
+}
+
+.checkout__details {
+  max-width: 400px;
+}
