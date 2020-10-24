@@ -1,2 +1,2 @@
 # nolan-amazon-clone
-Amazon Clone using ReactJS
+Amazon Clone built with ReactJS
