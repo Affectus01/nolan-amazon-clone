@@ -30,6 +30,10 @@
   justify-content: space-evenly;
 }
 
+.header__nav > a {
+  text-decoration: none;
+}
+
 .header__optionLineOne {
   font-size: 12px;
 }
@@ -72,6 +76,19 @@
 .dropdown-item:hover {
   background-color: rgb(121, 121, 121);
   color: #fff;
+}
+
+.header__nav .dropdown-toggle::after {
+  display: none;
+}
+
+.header__nav .dropdown-menu {
+  overflow: hidden;
+}
+
+.header__nav .dropdown-item > a {
+  text-decoration: none;
+  color: #000;
 }
 
 .btn-light:not(:disabled):not(.disabled).active:focus,

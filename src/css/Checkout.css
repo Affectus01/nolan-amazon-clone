@@ -1,17 +1,31 @@
-.checkout__container > h1 {
-  background: rgb(210, 210, 210);
+.checkout__container {
+  max-width: 1500px;
 }
 
-.checkout__title {
-  flex: 0.2;
-}
-
-.checkout__address,
-.checkout__items,
-.checkout__details {
-  flex: 0.8;
+.checkout__address > p {
+  margin-bottom: 0;
 }
 
 .checkout__details {
   max-width: 400px;
+}
+
+.checkout__button {
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  color: #111;
+  border-color: #a88734 #9c7e31 #846a29 !important;
+}
+
+.checkout__button:hover {
+  background: #f0c14b !important;
+}
+
+@media screen and (max-width: 768px) {
+  .checkout__button {
+    width: 100%;
+  }
+
+  .checkout__details {
+    max-width: unset;
+  }
 }

@@ -12,7 +12,8 @@ function CheckoutProduct({
   shortTitle,
   price,
   rating,
-  hideButton,
+  showRemoveButton,
+  showBuyAgainButton,
 }) {
   const [{ cart }, dispatch] = useStateValue();
 
@@ -22,18 +23,52 @@ function CheckoutProduct({
       type: "REMOVE_FROM_CART",
       id: id,
     });
-    cartNotify();
+    cartRemoveNotify();
   };
 
-  const Msg = () => (
+  const addToCart = () => {
+    //add item to the data layer
+    dispatch({
+      type: "ADD_TO_CART",
+      item: {
+        id: id,
+        title: title,
+        shortTitle,
+        image: image,
+        price: price,
+        rating: rating,
+      },
+    });
+    cartAddNotify();
+  };
+
+  const RemovedMsg = () => (
     <div>
       <p>{shortTitle} was removed from the cart</p>
     </div>
   );
 
-  const cartNotify = () =>
-    toast(<Msg />, {
+  const cartRemoveNotify = () =>
+    toast(<RemovedMsg />, {
       className: "border border-danger",
+      position: "top-right",
+      autoClose: 4000,
+      hideProgressBar: true,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: false,
+      progress: undefined,
+    });
+
+  const AddedMsg = () => (
+    <div>
+      <p>{shortTitle} was added to the cart</p>
+    </div>
+  );
+
+  const cartAddNotify = () =>
+    toast(<AddedMsg />, {
+      className: "border border-success",
       position: "top-right",
       autoClose: 4000,
       hideProgressBar: true,
@@ -64,12 +99,21 @@ function CheckoutProduct({
             ))}
         </div>
 
-        {!hideButton && (
+        {!showRemoveButton && (
           <button
             onClick={removeFromCart}
             className="checkoutProduct__removeButton border rounded mt-2"
           >
             Remove From Cart
+          </button>
+        )}
+
+        {showBuyAgainButton && (
+          <button
+            onClick={addToCart}
+            className="checkoutProduct__removeButton border rounded mt-2"
+          >
+            Buy Again
           </button>
         )}
       </div>

@@ -1,0 +1,27 @@
+.createAccount {
+  height: 100vh;
+}
+
+.createAccount__logo {
+  object-fit: contain;
+  width: 100px;
+}
+
+.createAccount__container {
+  width: 350px;
+  height: fit-content;
+}
+
+.createAccount__container > p {
+  font-size: 12px;
+}
+
+.createAccount__signInButton {
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  color: #111;
+  border-color: #a88734 #9c7e31 #846a29 !important;
+}
+
+.createAccount__signInButton:hover {
+  background: #f0c14b !important;
+}

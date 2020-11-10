@@ -75,27 +75,27 @@ function Checkout() {
   };
 
   return (
-    <div className="checkout bg-white">
-      <div className="checkout__container">
-        <h1 className="text-center p-3 border=bottom border-secondary">
+    <div className="checkout">
+      <div className="checkout__container m-auto bg-white">
+        <h1 className="text-center p-3 border-bottom border-secondary">
           Checkout(<Link to="/cart">{cart?.length} items</Link>)
         </h1>
-        <div className="checkout__section d-flex p-3 border-bottom border-secondary">
-          <div className="checkout__title">
+        <div className="checkout__section d-flex flex-md-row flex-column p-3 border-bottom border-secondary">
+          <div className="checkout__title col-12 col-md-2">
             <h3>Delivery Address</h3>
           </div>
-          <div className="checkout__address">
+          <div className="checkout__address col-12 col-md-10">
             <p>{user?.email}</p>
             <p>123 React Lane</p>
             <p>Los Angeles, CA</p>
           </div>
         </div>
 
-        <div className="checkout__section d-flex p-3 border-bottom border-secondary">
-          <div className="checkout__title">
+        <div className="checkout__section d-flex flex-md-row flex-column p-3 border-bottom border-secondary">
+          <div className="checkout__title col-12 col-md-2">
             <h3>Review Items and Delivery</h3>
           </div>
-          <div className="checkout__items">
+          <div className="checkout__items col-12 col-md-10">
             {cart.map((item) => (
               <CheckoutProduct
                 id={item.id}
@@ -104,40 +104,69 @@ function Checkout() {
                 price={item.price}
                 image={item.image}
                 rating={item.rating}
+                showRemoveButton
               />
             ))}
           </div>
         </div>
 
-        <div className="checkout__section d-flex p-3 border-bottom border-secondary">
-          <div className="checkout__title">
+        <div className="checkout__section d-flex flex-md-row flex-column p-3 border-bottom border-secondary">
+          <div className="checkout__title col-12 col-md-2">
             <h3>Payment Method</h3>
           </div>
-          <div className="checkout__details">
+          <div className="checkout__details col-12 col-md-10">
             <form onSubmit={handleSubmit}>
-              <CardElement onChange={handleChange} />
+              <CardElement
+                onChange={handleChange}
+                className="cardElement py-2 py-md-0"
+                options={{
+                  style: {
+                    base: {
+                      fontSize: "18px",
+                      color: "#424770",
+                      "::placeholder": {
+                        color: "#aab7c4",
+                      },
+                    },
+                    invalid: {
+                      color: "#9e2146",
+                    },
+                    empty: {
+                      color: "#9e2146",
+                    },
+                    complete: {
+                      color: "#28a745",
+                    },
+                  },
+                }}
+              />
 
-              <div className="price__container">
-                <CurrencyFormat
-                  renderText={(value) => (
-                    <>
-                      <p>Order Total: {value}</p>
-                    </>
-                  )}
-                  decimalScale={2}
-                  value={getCartTotal(cart)}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  prefix={"$"}
-                />
-
+              <div className="d-flex flex-md-row flex-column mt-3 align-items-center">
                 <button
-                  className="checkout__button"
+                  className="checkout__button btn border rounded mr-1"
                   disabled={processing || disabled || succeeded}
                 >
                   <span>{processing ? <p>processing</p> : "Buy Now"}</span>
                 </button>
+
+                <div className="price__container ml-1">
+                  <CurrencyFormat
+                    renderText={(value) => (
+                      <>
+                        <p className="font-weight-bold mt-2 mt-md-0 mb-0">
+                          Order Total: {value}
+                        </p>
+                      </>
+                    )}
+                    decimalScale={2}
+                    value={getCartTotal(cart)}
+                    displayType={"text"}
+                    thousandSeparator={true}
+                    prefix={"$"}
+                  />
+                </div>
               </div>
+
               {error && <div>{error}</div>}
             </form>
           </div>

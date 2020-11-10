@@ -8,9 +8,12 @@ const firebaseConfig = {
   storageBucket: "nolan-amzn-clone-e5e1a.appspot.com",
   messagingSenderId: "828258240340",
   appId: "1:828258240340:web:bdd5ec667a3d6cd1e32ac1",
+  measurementId: "G-G1LY5D744J",
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+firebaseApp.analytics();
 
 const db = firebaseApp.firestore();
 const auth = firebase.auth();

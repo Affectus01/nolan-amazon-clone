@@ -48,7 +48,7 @@ function MobileHeader() {
               onClick={handleAuthentication}
               className="mx-0 mx-sm-3 text-white align-self-center"
             >
-              Hello {user ? user?.email : "Guest"}
+              Hello {user ? user?.displayName : "Guest"}
             </span>
           </Link>
 

@@ -1,0 +1,7 @@
+.orders {
+  max-width: 1500px;
+}
+
+.orders__errorMessage {
+  font-size: 18px;
+}

@@ -8,6 +8,8 @@ function Login() {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [signInError, setSignInError] = useState(false);
+  const [createAccountError, setCreateAccountError] = useState(false);
 
   const signIn = (e) => {
     e.preventDefault();
@@ -19,7 +21,7 @@ function Login() {
           history.push("/");
         }
       })
-      .catch((error) => alert(error.message));
+      .catch((error) => setSignInError(true));
   };
 
   const register = (e) => {
@@ -29,7 +31,7 @@ function Login() {
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
         if (auth) {
-          history.pushState("/");
+          history.push("/CreateAccount");
         }
       })
       .catch((error) => alert(error.message));
@@ -78,6 +80,12 @@ function Login() {
           </button>
         </form>
 
+        {signInError && (
+          <div className="border border-danger text-danger mt-2 px-4 py-2 text-center">
+            <p className="m-0 p-0">Incorrect Username or Password</p>
+          </div>
+        )}
+
         <p className="mt-3 text-muted">
           By continuing, you agree to Amazon's Conditions of Use and Privacy
           Notice.
@@ -91,6 +99,12 @@ function Login() {
         >
           Create your Amazon account
         </button>
+
+        {createAccountError && (
+          <div className="border border-danger text-danger mt-2 px-4 py-2 text-center">
+            <p className="m-0 p-0">Username Already Exists</p>
+          </div>
+        )}
       </div>
     </div>
   );

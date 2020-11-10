@@ -16,6 +16,7 @@ import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import CreateAccount from "./components/CreateAccount";
 
 const promise = loadStripe(
   "pk_test_51HfHMwLdMUSrRZZ8toJwEQLrflBY0TfgHWQZurEmtIZdA7cxViAIPl5IWX7UIT78zVrYihQlApNYZlwrYS0DgmGj00Z3TL3cQm"
@@ -60,6 +61,9 @@ function App() {
         <Switch>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/CreateAccount">
+            <CreateAccount />
           </Route>
           <Route path="/" exact>
             {toggleMobile ? <MobileHeader /> : <Header />}

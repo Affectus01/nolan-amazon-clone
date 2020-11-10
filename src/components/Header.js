@@ -109,19 +109,44 @@ function Header() {
       </div>
 
       <div className="header__nav d-flex">
-        <Link to={!user && "/Login"}>
+        <div className="dropdown">
           <div
-            onClick={handleAuthentication}
-            className="header__option d-flex text-white flex-column px-3 mx-1"
+            className="dropdown-toggle header__option d-flex text-white flex-column px-3 mx-1"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
           >
             <span className="header__optionLineOne">
-              Hello {user ? user?.email : "Guest"}
+              Hello, {user ? user?.displayName : "Guest"}
             </span>
             <span className="header__optionLineTwo">
-              {user ? "Sign Out" : "Sign In"}
+              {user ? "Account & Lists" : "Sign In"}
             </span>
           </div>
-        </Link>
+          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            {user && (
+              <a className="dropdown-item py-0" href="#">
+                Account
+              </a>
+            )}
+            {user && (
+              <a className="dropdown-item py-0" href="#">
+                Lists
+              </a>
+            )}
+            <a
+              className="dropdown-item py-0"
+              href="#"
+              onClick={handleAuthentication}
+            >
+              <Link to={!user && "/Login"}>
+                {user ? "Sign Out" : "Sign In"}
+              </Link>
+            </a>
+          </div>
+        </div>
 
         <Link to="/orders">
           <div className="header__option d-flex text-white flex-column px-3 mx-1">
