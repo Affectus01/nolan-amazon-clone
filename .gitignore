@@ -11,6 +11,10 @@
 # production
 /build
 
+#other Files
+./src/axios.js
+./src/firebase.js
+
 # misc
 .DS_Store
 .env.local
