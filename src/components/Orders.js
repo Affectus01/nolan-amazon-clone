@@ -26,13 +26,16 @@ function Orders() {
         );
     } else {
       setOrders([]);
+    }
+
+    if (orders.length < 0) {
       setError(true);
     }
   }, [user]);
 
   return (
     <div className="orders bg-white m-auto">
-      <h2 className="pl-5 py-3">Your Orders</h2>
+      <h2 className="pl-1 pl-md-5 py-3">Your Orders</h2>
 
       {error && (
         <div className="orders__errorMessage text-center">
@@ -41,13 +44,16 @@ function Orders() {
           </p>
 
           <p>
-            <Link to="/Login">Sign In</Link> or{" "}
-            <Link to="/">Start Shopping</Link>
+            {user ? (
+              <Link to="/">Start Shopping</Link>
+            ) : (
+              <Link to="/Login">Sign In</Link>
+            )}
           </p>
         </div>
       )}
 
-      <div className="orders__orders px-5 pb-4">
+      <div className="orders__orders px-1 px-md-5 pb-4">
         {orders?.map((order) => (
           <Order order={order} />
         ))}

@@ -15,9 +15,9 @@
   object-fit: contain;
 }
 
-.product__info {
+/* .product__info {
   height: 100px;
-}
+} */
 
 .product > button {
   background: linear-gradient(to bottom, #f7dfa5, #f0c14b) !important;

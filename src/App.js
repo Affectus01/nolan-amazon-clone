@@ -51,8 +51,8 @@ function App() {
       }
     };
 
-    window.addEventListener("load", toggleHeader);
-    window.addEventListener("resize", toggleHeader);
+    window.onload = toggleHeader;
+    window.onresize = toggleHeader;
   }, []);
 
   return (

@@ -16,6 +16,11 @@
   color: #fcbb00;
 }
 
+.checkoutProduct__image {
+  max-width: 400px;
+  object-fit: contain;
+}
+
 @media screen and (max-width: 768px) {
   .checkoutProduct__title {
     max-width: 100%;

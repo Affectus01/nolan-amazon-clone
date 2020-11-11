@@ -9,6 +9,20 @@ import { auth } from "../firebase";
 
 function Header() {
   const [{ cart, user }, dispatch] = useStateValue();
+  var list = [
+    "All Departments",
+    "Amazon Devices",
+    "Apps & Games",
+    "Baby",
+    "Books",
+    "Clothing, Shoes, & Jewlery",
+    "Computers",
+    "Electronics",
+    "Home & Kitchen",
+    "Movies & TV",
+    "Pet Supplies",
+    "Toys & Games",
+  ];
 
   const handleAuthentication = () => {
     if (user) {
@@ -36,61 +50,11 @@ function Header() {
               All
             </button>
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              {/* 57 items */}
-              <a className="dropdown-item py-0" href="#">
-                Action
-              </a>
-              <a className="dropdown-item py-0" href="#">
-                Another action
-              </a>
-              <a className="dropdown-item py-0" href="#">
-                Something else here
-              </a>
-              <a className="dropdown-item py-0" href="#">
-                Action
-              </a>
-              <a className="dropdown-item py-0" href="#">
-                Another action
-              </a>
-              <a className="dropdown-item py-0" href="#">
-                Something else here
-              </a>
-              <a className="dropdown-item py-0" href="#">
-                Action
-              </a>
-              <a className="dropdown-item py-0" href="#">
-                Another action
-              </a>
-              <a className="dropdown-item py-0" href="#">
-                Something else here
-              </a>
-              <a className="dropdown-item py-0" href="#">
-                Action
-              </a>
-              <a className="dropdown-item py-0" href="#">
-                Another action
-              </a>
-              <a className="dropdown-item py-0" href="#">
-                Something else here
-              </a>
-              <a className="dropdown-item py-0" href="#">
-                Action
-              </a>
-              <a className="dropdown-item py-0" href="#">
-                Another action
-              </a>
-              <a className="dropdown-item py-0" href="#">
-                Something else here
-              </a>
-              <a className="dropdown-item py-0" href="#">
-                Action
-              </a>
-              <a className="dropdown-item py-0" href="#">
-                Another action
-              </a>
-              <a className="dropdown-item py-0" href="#">
-                Something else here
-              </a>
+              {list?.map((item) => (
+                <a className="dropdown-item py-0" href="#">
+                  {item}
+                </a>
+              ))}
             </div>
           </div>
         </div>

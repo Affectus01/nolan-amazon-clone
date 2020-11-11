@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../css/Product.css";
 import StarRateIcon from "@material-ui/icons/StarRate";
 import { useStateValue } from "../StateProvider";
+import { db } from "../firebase";
 import { ToastContainer, toast, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function Product({ id, title, shortTitle, price, rating, image }) {
+function Product({ id }) {
   const [{ cart }, dispatch] = useStateValue();
+  const [title, setTitle] = useState("");
+  const [shortTitle, setShortTitle] = useState("");
+  const [price, setPrice] = useState();
+  const [rating, setRating] = useState();
+  const [image, setImage] = useState("");
+
+  useEffect(() => {
+    db.collection("products")
+      .where("id", "==", id)
+      .onSnapshot((snapshot) => {
+        snapshot.forEach((doc) => {
+          setTitle(doc.data().title);
+          setShortTitle(doc.data().shortTitle);
+          setPrice(doc.data().price);
+          setRating(doc.data().rating);
+          setImage(doc.data().image);
+        });
+      });
+  }, []);
 
   const addToCart = () => {
     //add item to the data layer
@@ -15,7 +35,7 @@ function Product({ id, title, shortTitle, price, rating, image }) {
       item: {
         id: id,
         title: title,
-        shortTitle,
+        shortTitle: shortTitle,
         image: image,
         price: price,
         rating: rating,

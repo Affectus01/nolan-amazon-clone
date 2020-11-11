@@ -38,7 +38,7 @@ function MobileMenu({ toggleMenu }) {
             <span>
               <PersonOutlineIcon className="mobileMenu__headerIcon" />
             </span>
-            <span>{user ? user?.email : "Guest"}</span>
+            <span>Hello, {user ? user?.displayName : "Guest"}</span>
           </h3>
 
           <ul className="mobileMenu__menu mb-0 py-3 pl-0 border-top border-dark">
@@ -48,7 +48,11 @@ function MobileMenu({ toggleMenu }) {
               </Link>
             </li>
             <li>Account</li>
-            <li>Orders</li>
+            <li>
+              <Link to="/Orders" onClick={toggleMenu}>
+                <span>Orders</span>
+              </Link>
+            </li>
             <li>Buy Again</li>
             <li>Lists</li>
           </ul>
@@ -57,7 +61,9 @@ function MobileMenu({ toggleMenu }) {
           <ul className="mobileMenu__menu mb-0 py-3 pl-0 border-top border-dark">
             <li>
               <Link to={!user && "/Login"}>
-                <span onClick={handleAuthentication}>Sign Out</span>
+                <span onClick={handleAuthentication}>
+                  {user ? "Sign Out" : "Sign In"}
+                </span>
               </Link>
             </li>
           </ul>

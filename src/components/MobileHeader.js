@@ -26,7 +26,7 @@ function MobileHeader() {
   return (
     <div className="mobileHeader">
       {showMenu && <MobileMenu toggleMenu={toggleMenu} />}
-      <div className="mobileHeader__line1 d-flex align-items-center p-0 p-md-3">
+      <div className="mobileHeader__line1 d-flex align-items-center px-1 p-0 p-md-3">
         <div className="mobileHeader__line1Left">
           <MenuIcon
             onClick={toggleMenu}
@@ -48,7 +48,7 @@ function MobileHeader() {
               onClick={handleAuthentication}
               className="mx-0 mx-sm-3 text-white align-self-center"
             >
-              Hello {user ? user?.displayName : "Guest"}
+              Hello, {user ? user?.displayName : "Guest"}
             </span>
           </Link>
 

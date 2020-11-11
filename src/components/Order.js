@@ -8,14 +8,14 @@ import "../css/Order.css";
 function Order({ order }) {
   return (
     <div className="order bg-white border border-secondary p-4 rounded position-relative">
-      <div className="order__header d-flex justify-content-between">
-        <div>
-          <p>ORDER PLACED</p>
+      <div className="order__header d-flex flex-md-row flex-column justify-content-between">
+        <div className="pb-2 pb-md-0">
+          <p className="font-weight-bold">ORDER PLACED</p>
           <p>{moment.unix(order.data.created).format("MMMM Do YYYY, h:mma")}</p>
         </div>
 
-        <div>
-          <p>TOTAL</p>
+        <div className="pb-2 pb-md-0">
+          <p className="font-weight-bold">TOTAL</p>
           <CurrencyFormat
             renderText={(value) => (
               <>
@@ -30,8 +30,8 @@ function Order({ order }) {
           />
         </div>
 
-        <div>
-          <p>ORDER #</p>
+        <div className="pb-2 pb-md-0">
+          <p className="font-weight-bold">ORDER #</p>
           <p className="order__id">
             <small>{order.id}</small>
           </p>
