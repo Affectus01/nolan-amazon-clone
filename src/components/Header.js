@@ -100,15 +100,13 @@ function Header() {
                 Lists
               </a>
             )}
-            <a
+            <Link
               className="dropdown-item py-0"
-              href="#"
               onClick={handleAuthentication}
+              to={!user && "/Login"}
             >
-              <Link to={!user && "/Login"}>
-                {user ? "Sign Out" : "Sign In"}
-              </Link>
-            </a>
+              {user ? "Sign Out" : "Sign In"}
+            </Link>
           </div>
         </div>
 
