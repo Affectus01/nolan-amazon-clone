@@ -63,7 +63,7 @@ function Product({ id }) {
     });
 
   return (
-    <div className="product d-flex flex-column align-items-center justify-content-center p-4 w-100 bg-white">
+    <div className="product d-flex flex-column align-items-center justify-content-between p-4 w-100 bg-white">
       <div className="product__info mb-4">
         <p className="m-0">{title}</p>
         <p className="product__price m-0">
